@@ -5,15 +5,14 @@
   "author": "Pedro Gomes <github.com/pedrouid>",
   "license": "MIT",
   "keywords": [
-    "encoding",
-    "utils",
-    "utf8",
-    "hex",
-    "buffer",
-    "uint8array",
-    "arraybuffer",
-    "number",
-    "padLeft"
+    "rpc",
+    "json-rpc",
+    "payload",
+    "request",
+    "jsonrpc",
+    "random",
+    "timestamp",
+    "id"
   ],
   "files": [
     "dist"
