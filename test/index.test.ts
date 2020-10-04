@@ -1,7 +1,7 @@
 import payloadId from '../src';
 
 function findDuplicates(arr: number[]): number[] {
-  return arr.filter((item, index) => arr.indexOf(item) != index);
+  return arr.filter((item, index) => arr.indexOf(item) !== index);
 }
 
 describe('payloadId', () => {
