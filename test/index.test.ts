@@ -1,5 +1,9 @@
 import payloadId from '../src';
 
+function findDuplicates(arr: number[]): number[] {
+  return arr.filter((item, index) => arr.indexOf(item) != index);
+}
+
 describe('payloadId', () => {
   it('returns a number', () => {
     const result = payloadId();
@@ -9,26 +13,19 @@ describe('payloadId', () => {
 
   it('returns a time-based number', () => {
     const before = Date.now();
-    console.log('before', before);
     const result = payloadId();
-    console.log('result', result);
-    const time = Math.round(result * 1e-3);
-    console.log('time', time);
+    const time = Math.floor(result * 1e-3);
     const after = Date.now();
-    console.log('after', after);
     expect(before <= time).toBeTruthy();
     expect(after >= time).toBeTruthy();
   });
 
-  it('returns random numbers', () => {
-    const res1 = payloadId();
-    console.log('res1', res1);
-    const res2 = payloadId();
-    console.log('res2', res2);
-    const res3 = payloadId();
-    console.log('res3', res3);
-    expect(res1 !== res2).toBeTruthy();
-    expect(res1 !== res3).toBeTruthy();
-    expect(res2 !== res3).toBeTruthy();
+  it('returns all different values', () => {
+    const results: number[] = [];
+    for (let i = 0; i < 10; i++) {
+      results.push(payloadId());
+    }
+    const duplicates = findDuplicates(results);
+    expect(duplicates.length === 0).toBeTruthy();
   });
 });
